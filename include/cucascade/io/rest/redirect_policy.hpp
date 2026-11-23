@@ -50,9 +50,11 @@ struct redirect_response {
 /// Maximum accepted Location field value, in bytes. A longer value must never be truncated.
 inline constexpr std::size_t max_redirect_location_size = 2048;
 
-/// Check admission after a successful final response head. On success the caller can use the
-/// Location's path and query verbatim. Transport, TLS verification and cancellation belong to
-/// the caller. This function does not perform I/O or retain the response.
+/// Check admission after a successful final response head. When building the HTTP request target,
+/// use the Location's path verbatim, substituting "/" for an empty path. Append any query,
+/// including its leading "?", byte for byte (e.g. "?part=1" becomes "/?part=1").
+/// Transport, TLS verification and cancellation belong to the caller. This function does not
+/// perform I/O or retain the response.
 [[nodiscard]] bool allow_redirect(redirect_policy const& policy,
                                   redirect_response const& response) noexcept;
 
