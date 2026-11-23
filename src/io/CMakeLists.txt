@@ -24,6 +24,7 @@ target_sources(
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/config.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/object_store_lister.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/reactor_placement.cpp
+          ${CMAKE_CURRENT_SOURCE_DIR}/rest/redirect_policy.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/rest_ioctx.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/rest_reactor.cpp
           ${CMAKE_CURRENT_SOURCE_DIR}/rest/shared_services.cpp
